@@ -1,5 +1,7 @@
 # gover
 
+[![Build Status](https://travis-ci.org/mattn/gover.svg?branch=master)](https://travis-ci.org/mattn/gover)
+
 Version detection of go runtime.
 
 ## Why?
