@@ -1,6 +1,7 @@
 # gover
 
 [![Build Status](https://travis-ci.org/mattn/gover.svg?branch=master)](https://travis-ci.org/mattn/gover)
+[![GoDoc](https://godoc.org/github.com/mattn/gover?status.svg)](http://godoc.org/github.com/mattn/gover)
 
 Version detection of go runtime.
 
