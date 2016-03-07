@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// Version return the version string of Go runtime. This works well even though
+// the runtime is devel version.
 func Version() string {
 	b, err := exec.Command("go", "version").CombinedOutput()
 	if err != nil {
