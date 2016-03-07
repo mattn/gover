@@ -9,5 +9,7 @@ go:
   - go1.6
   - tip
 
+sudo: false
+
 script:
  - go test -v
