@@ -22,7 +22,12 @@ func main() {
 		log.Fatal(err)
 	}
 
-	fmt.Printf(strings.Join([]string{
+	f, err := os.Create("table.go")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer f.Close()
+	fmt.Fprintf(f, strings.Join([]string{
 		`//go:generate go run tool/gen.go`,
 		``,
 		`package gover`,
@@ -41,7 +46,7 @@ func main() {
 			continue
 		}
 		d := strings.TrimSpace(string(b))
-		fmt.Printf("	{`%s`, `%s`},\n", d, s)
+		fmt.Fprintf(f, "	{`%s`, `%s`},\n", d, s)
 	}
-	fmt.Println("}")
+	fmt.Fprintln(f, "}")
 }
