@@ -16,17 +16,19 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	os.Chdir(filepath.Dir(p))
-	b, err := exec.Command("git", "tag").CombinedOutput()
-	if err != nil {
-		log.Fatal(err)
-	}
 
 	f, err := os.Create("table.go")
 	if err != nil {
 		log.Fatal(err)
 	}
 	defer f.Close()
+
+	os.Chdir(filepath.Dir(p))
+	b, err := exec.Command("git", "tag").CombinedOutput()
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	fmt.Fprintf(f, strings.Join([]string{
 		`//go:generate go run tool/gen.go`,
 		``,
