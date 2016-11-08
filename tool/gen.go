@@ -9,6 +9,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"strings"
+	"unicode"
 )
 
 func main() {
@@ -38,6 +39,9 @@ func main() {
 		``}, "\n"))
 	for _, s := range strings.Split(string(b), "\n") {
 		if !strings.HasPrefix(s, "go") {
+			continue
+		}
+		if len(s) > 2 && !unicode.IsDigit([]rune(s)[2]) {
 			continue
 		}
 		if strings.Contains(s, "rc") || strings.Contains(s, "beta") {
